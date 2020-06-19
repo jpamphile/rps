@@ -6,6 +6,45 @@
     <title>RockPaperScissors</title>
 
     <style>
+
+/*
+        .userChoice, .cpuChoice{
+            position: relative;
+            -webkit-animation: countIn linear 1s 1s 3 normal;  alternate;
+            -moz-animation: countIn linear 1s 1s 3 normal;     alternate;
+            animation: countIn linear 1s 1s 3 normal;          alternate;
+        }
+
+        @keyframes countIn{
+            0%      {opacity 1; left: 350px; top: 100px}
+            60%     {opacity 1; left: 350px; top: 200px}
+            100%    {opacity 1; left: 350px; top: 100px}
+        }
+*/
+        .countIn{
+            -webkit-animation: countIn linear .7s 1s 3 normal; /*countIn 3;*/
+            -moz-animation: countIn linear .7s 1s 3 normal; /*countIn 3;*/
+            animation: countIn linear .7s 1s 3 normal; /*countIn 3;*/
+        }
+
+        @-webkit-keyframes countIn{
+            0%      {transform: translateY(0)}
+            60%     {transform: translateY(-100px)}
+            100%    {transform: translateY(0)} 
+        }
+
+        @-moz-keyframes countIn{
+            0%      {transform: translateY(0)}
+            60%     {transform: translateY(-100px)}
+            100%    {transform: translateY(0)} 
+        }
+
+        @keyframes countIn{
+            0%      {transform: translateY(0)}
+            60%     {transform: translateY(-100px)}
+            100%    {transform: translateY(0)} 
+        }
+
         .container{
             width: 650px;           /*applying the width of the game's "board"*/
             height: 475px;
@@ -103,7 +142,7 @@
         <div class = "player">
 
             <!--To show the actual picture of the cpu hand-->
-            <div class = "cpuChoice paper2"></div>
+            <div class = "cpuChoice rock2"></div>
 
             <!--cpu's name. Here, it's the cpu, not the player-->
             <p>Computer</p>
