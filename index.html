@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RockPaperScissors</title>
+
+    <style>
+        .container{
+            width: 650px;           /*applying the width of the game's "board"*/
+            margin: 0 auto;         /*setting the left and right margins to auto you end up centering the 
+                                    game board*/
+            text-align: center;     /*centers all text*/
+            padding: 25px;          /*pushes everthing out into the page a little bit*/
+        }
+
+        .player{                    
+            width: 150px;           /*setting the player width surface portion of the board/page*/
+            height: 150px;          /*setting the player height surface portion of the board/page*/
+            margin: 100px 50px;     /*setting the margin to the top and bottom.  Allows the hand to
+                                     be center within enough space for the hand to move up and down*/
+            display: inline-block;  /*keeps the width but positions the players side-by-side if there's 
+                                    room or else they will be stacked*/
+        }
+
+        .player p{
+            font-weight: 700;       /*boldens the words "player" and "computer"*/
+        }
+
+        .player div{
+            width: 100%;            /*ensures that the images fit nicely inside the player components/divs*/
+            height: 100%;           /*ensures that the images fit nicely inside the player components/divs*/
+        }
+
+        .rock{
+            background-image: url('rock.png')       /*loading the rock image as background-image to the 
+                                                    "userChoice" and "cpuChoice" divs*/
+        }
+
+        .paper{
+            background-image: url('paper.png');     /*loading the paper image as background-image to the 
+                                                    "userChoice" and "cpuChoice" divs*/
+        }
+
+        .scissors{
+            background-image: url('scissors.png');  /*loading the scissors image as background-image to the 
+                                                    "userChoice" and "cpuChoice" divs*/
+        }
+
+        .rock, .paper, .scissors{
+            background-size: contain;               /*adjusting the background properties so that the images fill the square box properly*/
+            background-repeat: no-repeat;           /*making sure the images do not repeat*/
+        }
+
+        .startBtn{
+            border: none;                           /*getting rid of any border around the button*/
+            padding: 10px 100px;                    /*padding of 10px to the top & bottom of the word "Play", as well as 100px to the right and left*/
+
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <!--"container" is a wrapper class containing the majority of the content 
+        for the page. Easier that way to use this class to affect changes for all parts of the page-->
+    <div class = "container">
+
+        <!--Game title in a h1 tag-->
+        <h1>Rock, Paper, Scissors</h1>
+        
+        <!--"player" class for player components-->
+        <div class = "player">
+
+            <!--To show the actual picture of the player hand-->
+            <div class = "userChoice rock"></div>
+
+            <!--player's name.  Here, it's the player, not the computer-->
+            <p>Player 1</p>
+        </div>
+
+        <!--2nd "player" class for other player (cpu) components-->
+        <div class = "player">
+
+            <!--To show the actual picture of the cpu hand-->
+            <div class = "cpuChoice paper"></div>
+
+            <!--cpu's name. Here, it's the cpu, not the player-->
+            <p>Computer</p>
+        </div>
+
+        <!--"result" class will display the result or winner-->
+        <div class = "result"></div>
+
+        <!--The button to start the game.-->
+        <button class = "startBtn">Play</button>
+
+    </div>
+</body>
+</html>
