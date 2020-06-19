@@ -22,9 +22,9 @@
         }
 */
         .countIn{
-            -webkit-animation: countIn linear .7s 1s 3 normal; /*countIn 3;*/
-            -moz-animation: countIn linear .7s 1s 3 normal; /*countIn 3;*/
-            animation: countIn linear .7s 1s 3 normal; /*countIn 3;*/
+            -webkit-animation: countIn linear .3s .3s 3 normal; /*countIn 3;*/
+            -moz-animation: countIn linear .3s .3s 3 normal; /*countIn 3;*/
+            animation: countIn linear .3s .3s 3 normal; /*countIn 3;*/
         }
 
         @-webkit-keyframes countIn{
@@ -132,7 +132,7 @@
         <div class = "player">
 
             <!--To show the actual picture of the player hand-->
-            <div class = "userChoice rock1"></div>
+            <div class = "userChoice rock1 countIn"></div>
 
             <!--player's name.  Here, it's the player, not the computer-->
             <p>Player 1</p>
@@ -142,7 +142,7 @@
         <div class = "player">
 
             <!--To show the actual picture of the cpu hand-->
-            <div class = "cpuChoice rock2"></div>
+            <div class = "cpuChoice rock2 countIn"></div>
 
             <!--cpu's name. Here, it's the cpu, not the player-->
             <p>Computer</p>
