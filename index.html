@@ -120,7 +120,7 @@
         }
 
     </style>
-
+<!--
     <script>
 
         var user = document.querySelector('.userChoice');
@@ -130,7 +130,7 @@
         var userChoice;
         var cpuChoice;
         var winStates1 = ['rock11', 'paper11', 'scissors11'];
-        var winStates2 = ['rock22', 'paper22', 'scissors22'];
+        //var winStates2 = ['rock22', 'paper22', 'scissors22'];
 
         startBtn.addEventListener('click', function(){
             this.disabled = true;
@@ -148,6 +148,7 @@
         });
 
     </script>
+-->
 
 </head>
 <body>
@@ -187,4 +188,46 @@
 
     </div>
 </body>
+<script>
+
+    var user = document.querySelector('.userChoice');
+    var cpu = document.querySelector('.cpuChoice');
+    var startBtn = document.querySelector('.startBtn');
+    var result = document.querySelector('.result');
+    var userChoice;
+    var cpuChoice;
+    var winStates1 = ['rock11', 'paper11', 'scissors11'];
+    var winStates2 = ['rock22', 'paper22', 'scissors22'];
+
+    //Referencing the "play" start button with an anonymous function.
+    //When the "play" button is clicked, the following instruction will executed.
+    startBtn.addEventListener('click', function(){
+        this.disabled = true;                           //the "play" button aka startBtn is disabled at first. "this." refers to the actual startBtn button
+        result.innerHTML = '';                          //making sure the results are empty...for now
+        user.className = "userChoice rock11 countIn";   //animation of 'rock' starts off here for player 1
+        cpu.className = "cpuChoice rock22 countIn";     //animation of 'rock' starts off here for the cpu
+    });
+
+    //Listening for when the animation ends, then anonymous function will be executed
+    document.addEventListener('animationend', function(){
+
+        //"play" button is not disabled here
+        startBtn.disabled = false;                                          
+        
+        //randomize the choice in winStates1[] for the cpu using Math.floor and Math.random
+        //match between the classes and the .png filenames/elements in winSates[] in the HTML5 code
+        var cpuChoice = winStates2[0 + Math.floor(Math.random() * 3)];      
+
+        //randomize the choice in winStates2[] for the player1 using Math.floor and Math.random
+        //match between the classes and the .png filenames/elements in winSates[] in the HTML5 code
+        var userChoice = winStates1[0 + Math.floor(Math.random() * 3)];
+
+        //Concatenates and displays the player's choice
+        user.className = "userChoice " + userChoice;                        
+        
+        //Concatenates and displays the cpu's choice
+        cpu.className = "cpuChoice " + cpuChoice;
+    });
+
+</script>
 </html>
