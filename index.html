@@ -87,27 +87,27 @@
                                                     "userChoice" and "cpuChoice" divs*/
         }
 
-        .paper1{
-            background-image: url('paper1.png');     /*loading the paper image as background-image to the 
+        .paper11{
+            background-image: url('paper11.png');     /*loading the paper image as background-image to the 
                                                     "userChoice" and "cpuChoice" divs*/
         }
 
-        .paper2{
-            background-image: url('paper2.png');     /*loading the paper image as background-image to the 
+        .paper22{
+            background-image: url('paper22.png');     /*loading the paper image as background-image to the 
                                                     "userChoice" and "cpuChoice" divs*/
         }
 
-        .scissors1{
-            background-image: url('scissors1.png');  /*loading the scissors image as background-image to the 
+        .scissors11{
+            background-image: url('scissors11.png');  /*loading the scissors image as background-image to the 
                                                     "userChoice" and "cpuChoice" divs*/
         }
 
-        .scissors2{
-            background-image: url('scissors2.png');  /*loading the scissors image as background-image to the 
+        .scissors22{
+            background-image: url('scissors22.png');  /*loading the scissors image as background-image to the 
                                                     "userChoice" and "cpuChoice" divs*/
         }
 
-        .rock11, .paper1, .scissors1, .rock22, .paper2, .scissors2{
+        .rock11, .paper11, .scissors11, .rock22, .paper22, .scissors22{
             background-size: contain;               /*adjusting the background properties so that the images fill the square box properly*/
             background-repeat: no-repeat;           /*making sure the images do not repeat*/
             /*background-color: red;*/
@@ -128,8 +128,9 @@
         var startBtn = document.querySelector('.startBtn');
         var result = document.querySelector('.result');
         var userChoice;
-        var winStates1 = ['rock11', 'paper1', 'scissors1'];
-        var winStates2 = ['rock22', 'paper2', 'scissors2'];
+        var cpuChoice;
+        var winStates1 = ['rock11', 'paper11', 'scissors11'];
+        var winStates2 = ['rock22', 'paper22', 'scissors22'];
 
         startBtn.addEventListener('click', function(){
             this.disabled = true;
@@ -140,8 +141,8 @@
 
         document.addEventListener('animationend', function(){
             startBtn.disabled = false;
-            var cpuChoice = winStates2[Math.floor(0 + Math.random() * 3)];
-            var userChoice = winStates1[Math.floor(0 + Math.random() * 3)];
+            var cpuChoice = winStates2[0 + Math.floor(Math.random() * 3)];
+            var userChoice = winStates1[0 + Math.floor(Math.random() * 3)];
             user.className = "userChoice " + userChoice;
             cpu.className = "cpuChoice " + cpuChoice;
         });
