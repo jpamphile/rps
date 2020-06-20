@@ -77,13 +77,13 @@
             height: 100%;           /*ensures that the images fit nicely inside the player components/divs*/
         }
 
-        .rock1{
-            background-image: url('rock1.png')       /*loading the rock image as background-image to the 
+        .rock11{
+            background-image: url('rock11.png')       /*loading the rock image as background-image to the 
                                                     "userChoice" and "cpuChoice" divs*/
         }
         
-        .rock2{
-            background-image: url('rock2.png')       /*loading the rock image as background-image to the 
+        .rock22{
+            background-image: url('rock22.png')       /*loading the rock image as background-image to the 
                                                     "userChoice" and "cpuChoice" divs*/
         }
 
@@ -107,7 +107,7 @@
                                                     "userChoice" and "cpuChoice" divs*/
         }
 
-        .rock1, .paper1, .scissors1, .rock2, .paper2, .scissors2{
+        .rock11, .paper1, .scissors1, .rock22, .paper2, .scissors2{
             background-size: contain;               /*adjusting the background properties so that the images fill the square box properly*/
             background-repeat: no-repeat;           /*making sure the images do not repeat*/
             /*background-color: red;*/
@@ -128,14 +128,14 @@
         var startBtn = document.querySelector('.startBtn');
         var result = document.querySelector('.result');
         var userChoice;
-        var winStates1 = ['rock1', 'paper1', 'scissors1'];
-        var winStates2 = ['rock2', 'paper2', 'scissors2'];
+        var winStates1 = ['rock11', 'paper1', 'scissors1'];
+        var winStates2 = ['rock22', 'paper2', 'scissors2'];
 
         startBtn.addEventListener('click', function(){
             this.disabled = true;
             result.innerHTML = '';
-            user.className = "userChoice rock1 countIn";
-            cpu.className = "cpuChoice rock2 countIn";
+            user.className = "userChoice rock11 countIn";
+            cpu.className = "cpuChoice rock22 countIn";
         });
 
         document.addEventListener('animationend', function(){
@@ -162,7 +162,7 @@
         <div class = "player">
 
             <!--To show the actual picture of the player hand-->
-            <div class = "userChoice rock1 countIn"></div>
+            <div class = "userChoice rock11 countIn"></div>
 
             <!--player's name.  Here, it's the player, not the computer-->
             <p>Player 1</p>
@@ -172,7 +172,7 @@
         <div class = "player">
 
             <!--To show the actual picture of the cpu hand-->
-            <div class = "cpuChoice rock2 countIn"></div>
+            <div class = "cpuChoice rock22 countIn"></div>
 
             <!--cpu's name. Here, it's the cpu, not the player-->
             <p>Computer</p>
