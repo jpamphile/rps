@@ -54,7 +54,7 @@
                                     game board*/
             text-align: center;     /*centers all text*/
             padding: 25px;          /*pushes everthing out into the page a little bit*/
-            background-color: black;
+            background-color: brown;
             font-family: Arial, Helvetica, sans-serif;
             color: white;
         }
@@ -82,8 +82,8 @@
                                                     "userChoice" and "cpuChoice" divs*/
         }
         
-        .rock22{
-            background-image: url('rock22.png')       /*loading the rock image as background-image to the 
+        .rock2{
+            background-image: url('rock2.png')       /*loading the rock image as background-image to the 
                                                     "userChoice" and "cpuChoice" divs*/
         }
 
@@ -92,8 +92,8 @@
                                                     "userChoice" and "cpuChoice" divs*/
         }
 
-        .paper22{
-            background-image: url('paper22.png');     /*loading the paper image as background-image to the 
+        .paper2{
+            background-image: url('paper2.png');     /*loading the paper image as background-image to the 
                                                     "userChoice" and "cpuChoice" divs*/
         }
 
@@ -102,12 +102,12 @@
                                                     "userChoice" and "cpuChoice" divs*/
         }
 
-        .scissors22{
-            background-image: url('scissors22.png');  /*loading the scissors image as background-image to the 
+        .scissors2{
+            background-image: url('scissors2.png');  /*loading the scissors image as background-image to the 
                                                     "userChoice" and "cpuChoice" divs*/
         }
 
-        .rock11, .paper11, .scissors11, .rock22, .paper22, .scissors22{
+        .rock11, .paper11, .scissors11, .rock2, .paper2, .scissors2{
             background-size: contain;               /*adjusting the background properties so that the images fill the square box properly*/
             background-repeat: no-repeat;           /*making sure the images do not repeat*/
             /*background-color: red;*/
@@ -174,7 +174,7 @@
         <div class = "player">
 
             <!--To show the actual picture of the cpu hand-->
-            <div class = "cpuChoice rock22 countIn"></div>
+            <div class = "cpuChoice rock2 countIn"></div>
 
             <!--cpu's name. Here, it's the cpu, not the player-->
             <p>Computer</p>
@@ -197,7 +197,7 @@
     var userChoice;
     var cpuChoice;
     var winStates1 = ['rock11', 'paper11', 'scissors11'];
-    var winStates2 = ['rock22', 'paper22', 'scissors22'];
+    var winStates2 = ['rock2', 'paper2', 'scissors2'];
 
     //Referencing the "play" start button with an anonymous function.
     //When the "play" button is clicked, the following instruction will executed.
@@ -205,7 +205,7 @@
         this.disabled = true;                           //the "play" button aka startBtn is disabled at first. "this." refers to the actual startBtn button
         result.innerHTML = '';                          //making sure the results are empty...for now
         user.className = "userChoice rock11 countIn";   //animation of 'rock' starts off here for player 1
-        cpu.className = "cpuChoice rock22 countIn";     //animation of 'rock' starts off here for the cpu
+        cpu.className = "cpuChoice rock2 countIn";     //animation of 'rock' starts off here for the cpu
     });
 
     //Listening for when the animation ends, then anonymous function will be executed
