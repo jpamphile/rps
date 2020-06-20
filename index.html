@@ -130,6 +130,21 @@
         var userChoice;
         var winStates = ['rock', 'paper', 'scissors'];
 
+        startBtn.addEventListener('click', function(){
+            this.disabled = true;
+            result.innerHTML = '';
+            user.className = "userChoice rock1 countIn";
+            cpu.className = "cpuChoice rock2 countIn";
+        });
+
+        document.addEventListener('animationend', function(){
+            startBtn.disabled = false;
+            var cpuChoice = winStates[Math.floor(0 + Math.random() * 3)];
+            var userChoice = winStates[Math.floor(0 + Math.random() * 3)];
+            user.className = "userChoice " + userChoice;
+            cpu.className = "cpuChoice " + cpuChoice;
+        });
+
     </script>
 
 </head>
