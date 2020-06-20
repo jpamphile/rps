@@ -128,19 +128,20 @@
         var startBtn = document.querySelector('.startBtn');
         var result = document.querySelector('.result');
         var userChoice;
-        var winStates = ['rock1', 'paper1', 'scissors1'];
+        var winStates1 = ['rock1', 'paper1', 'scissors1'];
+        var winStates2 = ['rock2', 'paper2', 'scissors2'];
 
         startBtn.addEventListener('click', function(){
             this.disabled = true;
-            result.innerHTML = ' ';
+            result.innerHTML = '';
             user.className = "userChoice rock1 countIn";
             cpu.className = "cpuChoice rock2 countIn";
         });
 
         document.addEventListener('animationend', function(){
             startBtn.disabled = false;
-            var cpuChoice = winStates[Math.floor(0 + Math.random() * 3)];
-            var userChoice = winStates[Math.floor(0 + Math.random() * 3)];
+            var cpuChoice = winStates2[Math.floor(0 + Math.random() * 3)];
+            var userChoice = winStates1[Math.floor(0 + Math.random() * 3)];
             user.className = "userChoice " + userChoice;
             cpu.className = "cpuChoice " + cpuChoice;
         });
@@ -155,7 +156,7 @@
     <div class = "container">
 
         <!--Game title in a h1 tag-->
-        <h1>Rock, Paper, Scissors</h1>
+        <h1>- Rock | Paper | Scissors -</h1>
         
         <!--"player" class for player components-->
         <div class = "player">
