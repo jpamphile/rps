@@ -128,11 +128,11 @@
         var startBtn = document.querySelector('.startBtn');
         var result = document.querySelector('.result');
         var userChoice;
-        var winStates = ['rock', 'paper', 'scissors'];
+        var winStates = ['rock1', 'paper1', 'scissors1'];
 
         startBtn.addEventListener('click', function(){
             this.disabled = true;
-            result.innerHTML = '';
+            result.innerHTML = ' ';
             user.className = "userChoice rock1 countIn";
             cpu.className = "cpuChoice rock2 countIn";
         });
