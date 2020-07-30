@@ -143,12 +143,12 @@
             <h1>Rock | Paper | Scissors</h1>
 
             <div class = "player" id = "player1">
-                <div class = "userChoice rock11 count-in" id = "userChoice"></div>
+                <div class = "userChoice rock11" id = "userChoice"></div>
                 <p>Player 1</p>
             </div>
 
             <div class = "player" id = "cpu">
-                <div class = "cpuChoice rock22 count-in" id = "cpuChoice"></div>
+                <div class = "cpuChoice rock22" id = "cpuChoice"></div>
                 <p>Computer</p>
             </div>
 
@@ -162,14 +162,52 @@
 
         <script>
 
-            function play{
+            function getRandomChoices(){
+
+                document.getElementById("startBtn").disabled = true;
+
+                var cpuOption = cpuWinStates[Math.floor(Math.random() * 3)];
+                var userOption = userWinStates[Math.floor(Math.random() * 3)];
+                
+                console.log(cpuOption);
+                console.log(userOption);
+
+                document.getElementById("userChoice").setAttribute("class", "userChoice " + userOption + " count-in");
+                //userChoice.setAttribute("class", "userChoice" + userOption + "count-in");
+
+                document.getElementById("cpuChoice").setAttribute("class", "cpuChoice " + cpuOption + " count-in");
+                //userChoice.setAttribute("class", "cpuChoice " + cpuOption + " count-in");
+
+            }
+
+            function play(){
+
+                document.getElementById("startBtn").disabled = true;
+                //startBtn.disabled = true;
+
+                document.getElementById("result").innerHTML = '';
+                //result.innerHTML = '';
+
+                document.getElementById("userChoice").setAttribute("class", "userChoice rock11 count-in");
+                //userChoice.setAttribute("class", "userChoice rock11 count-in");
+                
+                document.getElementById("cpuChoice").setAttribute("class", "cpuChoice rock22 count-in");
+                //cpuChoice.setAttribute("class", "cpuChoice rock22 count-in");
+
+                document.getElementById("startBtn").disabled = false;
+                startBtn.disabled = false;
+
+                document.addEventListener("animationend", getRandomChoices, false);
+
+                //document.getElementById("startBtn").disabled = false;
+                //startBtn.disabled = false;
                 
             }
 
-            function start{
-                var user = document.getElementById("userChoice");
+            function start(){
+                var userChoice = document.getElementById("userChoice");
                 
-                var cpu = document.getElementById("cpuChoice");
+                var cpuChoice = document.getElementById("cpuChoice");
                 
                 var startBtn = document.getElementById("startBtn");
                 startBtn.addEventListener("click", play, false);
@@ -178,13 +216,14 @@
                 
                 var userChoice;
                 
-                var winStates = ["rock", "paper", "scissors"];
-
+                var userWinStates = ["rock11", "paper11", "scissors11"];
+                var cpuWinStates = ["rock22", "paper22", "scissors22"];
 
             }
 
 
             window.addEventListener("load", start, false);
+
         </script>
 
 
