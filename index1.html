@@ -162,27 +162,58 @@
 
         <script>
 
+                var userWinStates = new Array(3); //["rock11", "paper11", "scissors11"];
+                userWinStates = ["rock11", "paper11", "scissors11"];
+                
+                var cpuWinStates = new Array(3); //["rock22", "paper22", "scissors22"];
+                cpuWinStates = ["rock22", "paper22", "scissors22"];
+                
+
+            function start(){
+                console.log("STARTING...");
+
+                var userChoice = document.getElementById("userChoice");
+                
+                var cpuChoice = document.getElementById("cpuChoice");
+                
+                var startBtn = document.getElementById("startBtn");
+                startBtn.addEventListener("click", play, false);
+
+                var result = document.getElementById("result");
+                
+                var userChoice;
+                
+
+                var userWinStates = ["rock11", "paper11", "scissors11"];
+                userWinStates = new Array(3); //["rock11", "paper11", "scissors11"];
+                
+                var cpuWinStates = ["rock22", "paper22", "scissors22"];
+                cpuWinStates = new Array(3); //["rock22", "paper22", "scissors22"];
+
+            }
+
+
             function getRandomChoices(){
 
                 document.getElementById("startBtn").disabled = true;
 
-                var cpuOption = cpuWinStates[Math.floor(Math.random() * 3)];
-                var userOption = userWinStates[Math.floor(Math.random() * 3)];
+                var cpuOption = cpuWinStates[Math.floor(0 + Math.random() * 2)];
+                var userOption = userWinStates[Math.floor(Math.random() * 2)];
                 
                 console.log(cpuOption);
                 console.log(userOption);
 
-                document.getElementById("userChoice").setAttribute("class", "userChoice " + userOption + " count-in");
+                document.getElementById("userChoice").setAttribute("class", "userChoice " + userOption); // + " count-in");
                 //userChoice.setAttribute("class", "userChoice" + userOption + "count-in");
 
-                document.getElementById("cpuChoice").setAttribute("class", "cpuChoice " + cpuOption + " count-in");
+                document.getElementById("cpuChoice").setAttribute("class", "cpuChoice " + cpuOption); // + " count-in");
                 //userChoice.setAttribute("class", "cpuChoice " + cpuOption + " count-in");
 
             }
 
             function play(){
 
-                document.getElementById("startBtn").disabled = true;
+                document.getElementById("startBtn").disabled = false;
                 //startBtn.disabled = true;
 
                 document.getElementById("result").innerHTML = '';
@@ -194,8 +225,8 @@
                 document.getElementById("cpuChoice").setAttribute("class", "cpuChoice rock22 count-in");
                 //cpuChoice.setAttribute("class", "cpuChoice rock22 count-in");
 
-                document.getElementById("startBtn").disabled = false;
-                startBtn.disabled = false;
+                document.getElementById("startBtn").disabled = true;
+                //startBtn.disabled = false;
 
                 document.addEventListener("animationend", getRandomChoices, false);
 
@@ -204,6 +235,7 @@
                 
             }
 
+/*
             function start(){
                 var userChoice = document.getElementById("userChoice");
                 
@@ -220,7 +252,7 @@
                 var cpuWinStates = ["rock22", "paper22", "scissors22"];
 
             }
-
+*/
 
             window.addEventListener("load", start, false);
 
