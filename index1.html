@@ -44,11 +44,13 @@
                 100%    {opacity 1; left: 350px; top: 100px}
             }
 */
-            .countIn{
-                -webkit-animation: countIn linear .3s .3s 3 normal; /*countIn 3;*/
-                -moz-animation: countIn linear .3s .3s 3 normal; /*countIn 3;*/
-                animation: countIn linear .3s .3s 3 normal; /*countIn 3;*/
-            }
+
+/*          .count-in{*/
+                /*-webkit-animation: count-in linear .3s .3s 3 normal;*/ /*count-in 3;*/
+                /*-moz-animation: count-in linear .3s .3s 3 normal;*/ /*count-in 3;*/
+                /*animation: count-in linear .3s .3s 3 normal;*/ /*count-in 3;*/
+            /*}*/
+
 
             /* taken from 'https://www.youtube.com/watch?v=s7FLk0B3tUM&list=PLpc_YvcwbxaQCI5TJisUGJenFEvUBzBd9&index=5' */
             @-webkit-keyframes count-in{
@@ -63,6 +65,7 @@
                 100%    {transform: translateY(0)} 
             }
 
+            /* taken from 'https://www.youtube.com/watch?v=s7FLk0B3tUM&list=PLpc_YvcwbxaQCI5TJisUGJenFEvUBzBd9&index=5' */
             @keyframes count-in{
                 0%      {transform: translateY(0)}
                 60%     {transform: translateY(-100px)}
@@ -70,7 +73,7 @@
             }
 
             .count-in{
-                animation: .7s countIN 3;
+                animation: 0.7s count-in 3;
             }
 
             .container{
@@ -156,6 +159,35 @@
             <!--<div class = "startBtn"><a href = "#">Play</a>-->   
             
         </div>
+
+        <script>
+
+            function play{
+                
+            }
+
+            function start{
+                var user = document.getElementById("userChoice");
+                
+                var cpu = document.getElementById("cpuChoice");
+                
+                var startBtn = document.getElementById("startBtn");
+                startBtn.addEventListener("click", play, false);
+
+                var result = document.getElementById("result");
+                
+                var userChoice;
+                
+                var winStates = ["rock", "paper", "scissors"];
+
+
+            }
+
+
+            window.addEventListener("load", start, false);
+        </script>
+
+
     </body>
 
 </html>
