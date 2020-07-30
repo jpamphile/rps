@@ -217,15 +217,19 @@
         //"play" button is not disabled here
         startBtn.disabled = false;                                          
         
-        ///*
+        /*
         //randomize the choice in winStates1[] for the cpu using Math.floor and Math.random
         //match between the classes and the .png filenames/elements in winSates[] in the HTML5 code
         var cpuChoice = winStates2[0 + Math.floor(Math.random() * 3)];      
+        */
+        var cpuChoice = getRandomChoice();
 
+        /*
         //randomize the choice in winStates2[] for the player1 using Math.floor and Math.random
         //match between the classes and the .png filenames/elements in winSates[] in the HTML5 code
         var userChoice = winStates1[0 + Math.floor(Math.random() * 3)];
         */
+        var userChoice = getRandomChoice();
 
         //Concatenates and displays the player's choice
         user.className = "userChoice " + userChoice;                        
@@ -235,6 +239,10 @@
 
         resutl.innerHTML = getWinner(userChoice, cpuChoice);
     });
+
+    function getRandomChoice(){
+        return Object.keys(winStates)[Math.floor(Math.random() * 3)];
+    }
 
     function getWinner(){
         if(userChoice === cpuChoice){
