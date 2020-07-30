@@ -6,30 +6,129 @@
         <title>Rock-Paper-Scissors</title>
 
         <style>
+    /*
+                a{
+                    text-decoration: none;
+                    font-family: "trebucher ms", helvetica, sans-serif;
+                    display: block;
+                    color: white;
+                    font-size: 20px;
+                    font-weight: bold;                
+                }
+                div.button{
+                    width: 200px;
+                    text-align: center;
+                    background-color: royalblue;
+                    border: 2px solid royalblue;
+                }
+                div.button:hover{
+                    background-color: white;
+                    border-color: orange;
+                }
+                a:hover{
+                    color: royalblue;
+                }
+*/
+
 /*
-            a{
-                text-decoration: none;
-                font-family: "trebucher ms", helvetica, sans-serif;
-                display: block;
-                color: white;
-                font-size: 20px;
-                font-weight: bold;                
+            .userChoice, .cpuChoice{
+                position: relative;
+                -webkit-animation: countIn linear 1s 1s 3 normal;  alternate;
+                -moz-animation: countIn linear 1s 1s 3 normal;     alternate;
+                animation: countIn linear 1s 1s 3 normal;          alternate;
             }
-            div.button{
-                width: 200px;
-                text-align: center;
-                background-color: royalblue;
-                border: 2px solid royalblue;
-            }
-            div.button:hover{
-                background-color: white;
-                border-color: orange;
-            }
-            a:hover{
-                color: royalblue;
+
+            @keyframes countIn{
+                0%      {opacity 1; left: 350px; top: 100px}
+                60%     {opacity 1; left: 350px; top: 200px}
+                100%    {opacity 1; left: 350px; top: 100px}
             }
 */
+            .countIn{
+                -webkit-animation: countIn linear .3s .3s 3 normal; /*countIn 3;*/
+                -moz-animation: countIn linear .3s .3s 3 normal; /*countIn 3;*/
+                animation: countIn linear .3s .3s 3 normal; /*countIn 3;*/
+            }
+
+            /* taken from 'https://www.youtube.com/watch?v=s7FLk0B3tUM&list=PLpc_YvcwbxaQCI5TJisUGJenFEvUBzBd9&index=5' */
+            @-webkit-keyframes count-in{
+                0%      {transform: translateY(0)}
+                60%     {transform: translateY(-100px)}
+                100%    {transform: translateY(0)} 
+            }
+
+            @-moz-keyframes count-in{
+                0%      {transform: translateY(0)}
+                60%     {transform: translateY(-100px)}
+                100%    {transform: translateY(0)} 
+            }
+
+            @keyframes count-in{
+                0%      {transform: translateY(0)}
+                60%     {transform: translateY(-100px)}
+                100%    {transform: translateY(0)} 
+            }
+
+            .count-in{
+                animation: .7s countIN 3;
+            }
+
+            .container{
+                width: 650px;
+                margin: 0 auto;
+                text-align: center;
+                padding: 25px;
+            }
+
+            .player{
+                width: 150px;
+                height: 150px;
+                margin: 100px 50px;
+                display: inline-block;
+            }
+
+            .player p{
+                font-weight: 700;
+            }
+
+            .player div{
+                width: 100%;
+                height: 100%;
+            }
+
+            .rock11{
+                background-image: url("rock11.png");
+            }
+
+            .rock22{
+                background-image: url("rock22.png");
+            }
+
+            .paper11{
+                background-image: url("paper11.png");
+            }
             
+            .paper22{
+                background-image: url("paper22.png");
+            }
+
+            .scissors11{
+                background-image: url("scissors11.png");
+            }
+
+            .scissors22{
+                background-image: url("scissors22.png");
+            }
+
+            .rock11, .paper11, .scissors11 .rock22, .paper22, .scissors22{
+                background-size: contain;
+                background-repeat: no-repeat;
+            }
+
+            .startBtn{
+                border: none;
+                padding: 10px 100px;
+            }
         </style>
 
     </head>
@@ -40,27 +139,23 @@
             
             <h1>Rock | Paper | Scissors</h1>
 
-            <div class = "player" id = "player">
-                <div class = "userChoice" id = "userChoice"></div>
+            <div class = "player" id = "player1">
+                <div class = "userChoice rock11 count-in" id = "userChoice"></div>
                 <p>Player 1</p>
             </div>
 
-            <div class = "cpu" id = "cpu">
-                <div class = "cpuChoice" id = "cpuChoice"></div>
+            <div class = "player" id = "cpu">
+                <div class = "cpuChoice rock22 count-in" id = "cpuChoice"></div>
                 <p>Computer</p>
             </div>
 
             <div class = "result" id = "result"></div>
 
-
             <button class = "startBtn" id = "startBtn">Play</button>
             <!--Can also use following for a button.-->
-            <!--<div class = "startBtn"><a href = "#">Play</a>-->
-
-
-
+            <!--<div class = "startBtn"><a href = "#">Play</a>-->   
+            
         </div>
-
     </body>
 
 </html>
