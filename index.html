@@ -159,11 +159,13 @@
             <div class = "player" id = "player1">
                 <div class = "userChoice rock11" id = "userChoice"></div>
                 <p>Player 1</p>
+                <span id = "userScore">0</span>
             </div>
 
             <div class = "player" id = "cpu">
                 <div class = "cpuChoice rock22" id = "cpuChoice"></div>
                 <p>Computer</p>
+                <span id = "cpuScore">0</span>
             </div>
 
             <div class = "result" id = "result">LET'S PLAY!</div>
@@ -184,15 +186,17 @@
 
         <script>
 
-                var userOption = '';
-                var cpuOption = '';
-                var result = '';
+            var userOption = '';
+            var cpuOption = '';
+            var result = '';
+            var userScore = 0;
+            var cpuScore = 0;
 
-                //var userWinStates = new Array(3); //["rock11", "paper11", "scissors11"];
-                var userWinStates = ["rock11", "paper11", "scissors11"];
-                
-                //var cpuWinStates = new Array(3); //["rock22", "paper22", "scissors22"];
-                var cpuWinStates = ["rock22", "paper22", "scissors22"];
+            //var userWinStates = new Array(3); //["rock11", "paper11", "scissors11"];
+            var userWinStates = ["rock11", "paper11", "scissors11"];
+            
+            //var cpuWinStates = new Array(3); //["rock22", "paper22", "scissors22"];
+            var cpuWinStates = ["rock22", "paper22", "scissors22"];
 
                 
             function rpsAnimation(){
@@ -203,7 +207,7 @@
                 document.getElementById("cpuChoice").setAttribute("class", "cpuChoice rock22 count-in");
                 //cpuChoice.setAttribute("class", "cpuChoice rock22 count-in");
 
-                document.getElementById("startBtn").disabled = false;
+                document.getElementById("startBtn").disabled = true;
                 //startBtn.disabled = false;
 
                 document.addEventListener("animationend", getRandomChoices, false);
@@ -240,10 +244,15 @@
             
             function getWinner(userPicks, cpuPicks){
 
+                console.log(userPicks + " v " + cpuPicks);
+
                 if((userPicks === "rock11" && cpuPicks === "paper22") ||
                 (userPicks === "paper11" && cpuPicks === "scissors22") ||
                 (userPicks === "scissors11" && cpuPicks === "rock22")){
                     //result.innerHTML = "CPU Wins!";
+                    ++cpuScore;
+                    console.log(cpuScore);
+                    document.getElementById("cpuScore").innerHTML = cpuScore;
                     return "CPU Wins!";
                 }
 
@@ -251,6 +260,9 @@
                 (userPicks === "paper11" && cpuPicks === "rock22") ||
                 (userPicks === "scissors11" && cpuPicks === "paper22")){
                     //result.innerHTML = "YOU Win!";
+                    ++userScore;
+                    console.log(userScore);
+                    document.getElementById("userScore").innerHTML = userScore;
                     return "YOU Win!";
                 }else{
                     return "It's a tie!";
@@ -258,8 +270,6 @@
 
                 //using JSON to determin a winner
                 //winStates = {rock: "scissors", paper: "rock", scissors: "paper"}
-
-
             }
 /*
             function start(){
@@ -310,9 +320,10 @@
                 document.getElementById("cpuChoice").setAttribute("class", "cpuChoice " + cpuOption); // + " count-in");
                 //userChoice.setAttribute("class", "cpuChoice " + cpuOption + " count-in");
 
-                //result.innerHTML = getWinner(userOption, cpuOption);
+                result.innerHTML = getWinner(userOption, cpuOption);
 
-                document.getElementById("startBtn").disabled = false;
+                document.getElementById("startBtn").disabled = true;
+                console.log("XXXXXXXXX")
 
                 //start();
             }
