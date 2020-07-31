@@ -6,6 +6,9 @@
         <title>Rock-Paper-Scissors</title>
 
         <style>
+                /*body{
+                    background-color: black;
+                }*/
     /*
                 a{
                     text-decoration: none;
@@ -159,13 +162,13 @@
             <div class = "player" id = "player1">
                 <div class = "userChoice rock11" id = "userChoice"></div>
                 <p>Player 1</p>
-                <span id = "userScore">0</span>
+                <span id = "userScore"></span>
             </div>
 
             <div class = "player" id = "cpu">
                 <div class = "cpuChoice rock22" id = "cpuChoice"></div>
                 <p>Computer</p>
-                <span id = "cpuScore">0</span>
+                <span id = "cpuScore"></span>
             </div>
 
             <div class = "result" id = "result">LET'S PLAY!</div>
@@ -239,12 +242,13 @@
                 }
 
                 console.log(e.target.getAttribute("id"));
+                cpuOption = cpuWinStates[Math.floor(0 + Math.random() * 3)];
 
             }
             
             function getWinner(userPicks, cpuPicks){
 
-                console.log(userPicks + " v " + cpuPicks);
+                console.log("getWinner :" + userPicks + " v " + cpuPicks);
 
                 if((userPicks === "rock11" && cpuPicks === "paper22") ||
                 (userPicks === "paper11" && cpuPicks === "scissors22") ||
@@ -252,8 +256,8 @@
                     //result.innerHTML = "CPU Wins!";
                     ++cpuScore;
                     console.log(cpuScore);
-                    document.getElementById("cpuScore").innerHTML = cpuScore;
-                    return "CPU Wins!";
+//                    document.getElementById("cpuScore").innerHTML = cpuScore;
+                    return "Cpu WINS!";
                 }
 
                 if((userPicks === "rock11" && cpuPicks === "scissors22") ||
@@ -262,12 +266,13 @@
                     //result.innerHTML = "YOU Win!";
                     ++userScore;
                     console.log(userScore);
-                    document.getElementById("userScore").innerHTML = userScore;
-                    return "YOU Win!";
-                }else{
-                    return "It's a tie!";
-                }
+//                    document.getElementById("userScore").innerHTML = userScore;
+                    return "You WIN!";
+                }//else{
+                    //return "It's a tie!";
+                //}
 
+                return "TIE!"
                 //using JSON to determin a winner
                 //winStates = {rock: "scissors", paper: "rock", scissors: "paper"}
             }
@@ -303,7 +308,7 @@
 
                 document.getElementById("startBtn").disabled = true;
 
-                cpuOption = cpuWinStates[Math.floor(0 + Math.random() * 3)];
+                //cpuOption = cpuWinStates[Math.floor(0 + Math.random() * 3)];********************************
                 //var userOption = userWinStates[Math.floor(0 + Math.random() * 3)];
                 //userOption = rpsWeapon(); //userWinStates[Math.floor(0 + Math.random() * 3)];
                 
@@ -323,7 +328,9 @@
                 result.innerHTML = getWinner(userOption, cpuOption);
 
                 document.getElementById("startBtn").disabled = true;
-                console.log("XXXXXXXXX")
+                console.log("XXXXXXXXX");
+
+                return;
 
                 //start();
             }
