@@ -130,21 +130,21 @@
 
             .rockBtn, .paperBtn, .scissorsBtn{
                 position: relative; /*absolute;*/
-                top: 25px;
+                top: 15px;
                 margin-top: 1%; 
                 margin-left: 1%;
                 margin-bottom: 1%;
                 margin-right: 1%;
                 border: 1px solid black;
                 border-width: medium;
-                padding: 15px 40px;
+                padding: 15px 50px;
             }
 
             .startBtn{
                 position: relative; /*absolute;*/
-                top: 55px;
+                top: 25px;
                 border: none;
-                padding: 10px 100px;
+                padding: 15px 100px;
             }
         </style>
 
@@ -166,7 +166,7 @@
                 <p>Computer</p>
             </div>
 
-            <div class = "result" id = "result">xxx</div>
+            <div class = "result" id = "result">LET'S PLAY!</div>
 
             <div class = "rpsBtns" id = "rpsBtns">
                 <button class = "rockBtn" id = "rockBtn">ROCK</button>
@@ -184,29 +184,58 @@
 
         <script>
 
-                var userOption;
-                var cpuOption;
+                var userOption = '';
+                var cpuOption = '';
+                var result = '';
 
                 //var userWinStates = new Array(3); //["rock11", "paper11", "scissors11"];
                 var userWinStates = ["rock11", "paper11", "scissors11"];
                 
                 //var cpuWinStates = new Array(3); //["rock22", "paper22", "scissors22"];
                 var cpuWinStates = ["rock22", "paper22", "scissors22"];
+
                 
+            function rpsAnimation(){
+
+                document.getElementById("userChoice").setAttribute("class", "userChoice rock11 count-in");
+                //userChoice.setAttribute("class", "userChoice rock11 count-in");
+                
+                document.getElementById("cpuChoice").setAttribute("class", "cpuChoice rock22 count-in");
+                //cpuChoice.setAttribute("class", "cpuChoice rock22 count-in");
+
+                document.getElementById("startBtn").disabled = false;
+                //startBtn.disabled = false;
+
+                document.addEventListener("animationend", getRandomChoices, false);
+            }
+            
             function rpsWeapon(e){
+
+                console.log("RPSWeapon...");
+//              console.log(e.target.getAttribute("id"));
+
+                //rpsAnimation();
+
                 if(e.target.getAttribute("id") === "rockBtn"){
-                    return "rock22";
+                    rpsAnimation();
+                    userOption = userWinStates[0];
+                    console.log("I clicked on : " + userOption);
                 }
                 
                 if(e.target.getAttribute("id") === "paperBtn"){
-                    return "paper22";
+                    rpsAnimation();
+                    userOption = userWinStates[1];
+                    console.log("I clicked on : " + userOption);
                 }
                 
                 if(e.target.getAttribute("id") === "scissorsBtn"){
-                    return "scissors22";
+                    rpsAnimation();
+                    userOption = userWinStates[2];
+                    console.log("I clicked on : " + userOption);
                 }
 
-                return "rock22";
+                console.log(e.target.getAttribute("id"));
+
             }
             
             function getWinner(userPicks, cpuPicks){
@@ -218,9 +247,9 @@
                     return "CPU Wins!";
                 }
 
-                if((cpuPicks === "rock22" && userPicks === "paper11") ||
-                (cpuPicks === "paper22" && userPicks === "scissors11") ||
-                (cpuPicks === "scissors22" && userPicks === "rock11")){
+                if((userPicks === "rock11" && cpuPicks === "scissors22") ||
+                (userPicks === "paper11" && cpuPicks === "rock22") ||
+                (userPicks === "scissors11" && cpuPicks === "paper22")){
                     //result.innerHTML = "YOU Win!";
                     return "YOU Win!";
                 }else{
@@ -260,39 +289,53 @@
 
             function getRandomChoices(){
 
+                console.log("Matching : " + userOption);
+
                 document.getElementById("startBtn").disabled = true;
 
-                document.addEventListener("click", rpsWeapon, false);
-
-                var cpuOption = cpuWinStates[Math.floor(0 + Math.random() * 3)];
-                var userOption = userWinStates[Math.floor(0 + Math.random() * 3)];
+                cpuOption = cpuWinStates[Math.floor(0 + Math.random() * 3)];
+                //var userOption = userWinStates[Math.floor(0 + Math.random() * 3)];
+                //userOption = rpsWeapon(); //userWinStates[Math.floor(0 + Math.random() * 3)];
                 
-                //console.log(cpuOption);
+                console.log(cpuOption);
                 //console.log(userOption);
 
-                var userOption = rpsWeapon();
+                //var userOption = rpsWeapon();
 
+                console.log("**********");
                 document.getElementById("userChoice").setAttribute("class", "userChoice " + userOption); // + " count-in");
                 //userChoice.setAttribute("class", "userChoice" + userOption + "count-in");
 
+                //document.getElementById("cpuChoice").setAttribute("class", cpuOption); //"cpuChoice " + cpuOption); // + " count-in");
                 document.getElementById("cpuChoice").setAttribute("class", "cpuChoice " + cpuOption); // + " count-in");
                 //userChoice.setAttribute("class", "cpuChoice " + cpuOption + " count-in");
 
-                result.innerHTML = getWinner(userOption, cpuOption);
+                //result.innerHTML = getWinner(userOption, cpuOption);
 
                 document.getElementById("startBtn").disabled = false;
 
-                start();
+                //start();
             }
 
             function play(){
+
+                console.log("NOW PLAY...");
+
+                document.getElementById("rockBtn").disabled = false;
+                //rockBtn.disabled = false;
+
+                document.getElementById("paperBtn").disabled = false;
+                //paperBtn.disabled = false;
+
+                document.getElementById("scissorsBtn").disabled = false;
+                //scissorsBtn.disabled = false;
 
                 document.getElementById("startBtn").disabled = true;
                 //startBtn.disabled = true;
 
                 document.getElementById("result").innerHTML = '';
                 //result.innerHTML = '';
-
+/*
                 document.getElementById("userChoice").setAttribute("class", "userChoice rock11 count-in");
                 //userChoice.setAttribute("class", "userChoice rock11 count-in");
                 
@@ -303,9 +346,11 @@
                 //startBtn.disabled = false;
 
                 document.addEventListener("animationend", getRandomChoices, false);
-
+*/
                 //document.getElementById("startBtn").disabled = false;
                 //startBtn.disabled = false;
+
+                document.addEventListener("click", rpsWeapon, false);
                 
             }
 
@@ -313,14 +358,23 @@
             function start(){
                 console.log("STARTING...");
 
-                var userChoice = document.getElementById("userChoice");
+                document.getElementById("rockBtn").disabled = true;
+                //rockBtn.disabled = true;
                 
-                var cpuChoice = document.getElementById("cpuChoice");
+                document.getElementById("paperBtn").disabled = true;
+                //paperBtn.disabled = true;
+                
+                document.getElementById("scissorsBtn").disabled = true;
+                //scissorsBtn.disabled = true;
+
+                userChoice = document.getElementById("userChoice");
+                
+                cpuChoice = document.getElementById("cpuChoice");
                 
                 var startBtn = document.getElementById("startBtn");
                 startBtn.addEventListener("click", play, false);
 
-                var result = document.getElementById("result");
+                result = document.getElementById("result");
             }
 
             window.addEventListener("load", start, false);
